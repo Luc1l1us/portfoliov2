@@ -6,42 +6,68 @@ import ProfileImage from "../assets/drawingpfp.png";
 import Symph from "../assets/symph-logo.jpg";
 import Taskbar from "./components/taskbar";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
-import { faRightLong } from "@fortawesome/free-solid-svg-icons";
+import { faClipboard } from "@fortawesome/free-regular-svg-icons/faClipboard";
+import { faRankingStar } from "@fortawesome/free-solid-svg-icons";
+import { faInfo } from "@fortawesome/free-solid-svg-icons";
+import { faAddressCard } from "@fortawesome/free-regular-svg-icons";
 
 export default function Home() {
   return (
     //Change hardcoded padding and margin to scale
     //Change into 3 flex rows and scale
-    <div className="h-[100vh] sm:h-[100vh] md:h-[85vh] lg:h-[80vh] flex flex-row justify-items-start md:m-20 md:pr-30 rounded-lg border border-white shadow-[0_0_20px_rgba(0,0,0,0.15)] text-silver-700">
+    <div className="h-[100vh] sm:h-[100vh] md:h-[85vh] lg:h-[80vh] flex flex-row justify-items-start md:m-20 md:pr-30 rounded-lg border border-white shadow-[0_0_20px_rgba(0,0,0,0.15)] text-silver-700 gap-3">
       <Taskbar />
       {/*First Column (should redirect the user to what the user had clicked)*/}
-      <div className="flex flex-col items-center first-column basis-1/3 m-6 font-ubuntu">
+      <div className="flex flex-col items-center first-column basis-1/3 font-ubuntu rounded-md bg-silver-100">
         {/* First part */}
-        <div>
-          <div className="flex relative w-13 sm:w-24 md:w-32 lg:w-40 aspect-square picture-box grayscale">
-            <Image src={ProfileImage} alt="profilepic" fill unoptimized></Image>
+        {/* profile pic and author's name and role */}
+        <div className="profile-container flex items-center bg-silver-base rounded-md w-full">
+          <div className="profile-image flex-none ">
+            <Image src={ProfileImage} alt="Profile Image"></Image>
           </div>
-          <p className="font-bold text-sm lg:text-xl ">Edzie Mari Navarra</p>
-          <p className="text-sm lg:text-xl ">Software Developer</p>
+          <div className="profile-text-container flex grow flex-col place-content-start ml-5">
+            <p className="font-bold lg:text-base">Edzie Mari Navarra</p>
+            <p className="lg:text-base">Software Developer</p>
+          </div>
         </div>
 
         {/* Second part */}
-        <div className="flex flex-col navigation gap-2 mt-20 mr-auto">
-          <a href="#projects" className="hover-navigation">
-            ● projects
-          </a>
-          <a href="#experience" className="hover-navigation">
-            ● experience
-          </a>
-          <a href="#about" className="hover-navigation">
-            ● about
-          </a>
-          <a href="#contact" className="hover-navigation">
-            ● contact
-          </a>
+        <div className="flex flex-col navigation gap-4 mt-3 bg-silver-base rounded-md w-full h-full">
+          <div className="section-container-title lg:mt-6 lg:ml-6">Section</div>
+          <div className="sections-container flex flex-col lg:ml-6 gap-1">
+            <a
+              href="#projects"
+              className="ml-3 hover-navigation py-2 place-items-center rounded-md transition-all duration-200 hover:bg-gray-100/75"
+            >
+              <FontAwesomeIcon icon={faClipboard} className="mr-3" />
+              projects
+            </a>
+            <a
+              href="#experience"
+              className="ml-3 hover-navigation py-2 place-items-center rounded-md transition-all duration-200 hover:bg-gray-100/75"
+            >
+              <FontAwesomeIcon icon={faRankingStar} className="mr-3" />
+              experience
+            </a>
+            <a
+              href="#about"
+              className="ml-3 hover-navigation py-2 place-items-center rounded-md transition-all duration-200 hover:bg-gray-100/75"
+            >
+              <FontAwesomeIcon icon={faInfo} className="mr-3" />
+              about
+            </a>
+            <a
+              href="#contact"
+              className="ml-3 hover-navigation py-2 place-items-center rounded-md transition-all duration-200 hover:bg-gray-100/75"
+            >
+              <FontAwesomeIcon icon={faAddressCard} className="mr-3" />
+              contact
+            </a>
+          </div>
         </div>
 
         {/* Third part */}
+        {/*  RESUME
         <div className="first-column-bottom mt-auto sm:flex-col">
           <div className="view-resume hover:text-silver-base">
             <Link
@@ -54,29 +80,36 @@ export default function Home() {
             </Link>
           </div>
         </div>
+        */}
       </div>
 
       {/*Second Column (should be scrollable)*/}
-      <div className="second-column basis-2/3 mt-10 font-ubuntu">
-        <p className="font-doto text-2xl">GREETINGS!</p>
-        <div className="">
-          My Name is Edzie Mari Navarra
-          <div className="description font-bold text-2xl">
+      <div className="second-column basis-2/3 font-ubuntu bg-silver-100">
+        <div className="flex flex-col bg-silver-base rounded-md w-full">
+          <p className="font-doto text-2xl ml-6">GREETINGS!</p>
+          <p className="ml-6">My Name is Edzie Mari Navarra</p>
+          <div className="description font-bold text-2xl ml-6">
             Passionate about <span className="text-gray-300">designing</span>{" "}
             and <span className="text-gray-200">developing </span>
             apps that <span className="text-gray-400">help people </span>
             and <span className="text-gray-400"> bring ideas </span> to life.
           </div>
         </div>
-        <section id="projects" className="projects-container mt-10">
-          <div className="projects-title">projects</div>
+        <section
+          id="projects"
+          className="projects-container mt-3 bg-silver-base rounded-md"
+        >
+          <div className="projects-title m-6">projects</div>
           {projects.map((project) => (
             <Projects key={project.projname} {...project} />
           ))}
         </section>
-        <section id="experience" className="experience-container mt-15">
-          <p className="experience-title">experience</p>
-          <div className="flex mt-5">
+        <section
+          id="experience"
+          className="experience-container bg-silver-base mt-3 rounded-md"
+        >
+          <p className="experience-title ml-6">experience</p>
+          <div className="flex ml-6 mt-3 h-full">
             <div className="first-experience-logo">
               <Image
                 className="mr-15 rounded-lg drop-shadow-lg"
