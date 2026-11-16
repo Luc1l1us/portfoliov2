@@ -79,12 +79,15 @@ body {
   }
 }
 
+/* add border-bottom to each title */
+/* 
 .projects-title,
 .experience-title,
 .about-title,
 .contact-title {
   border-bottom: 2px solid var(--color-silver-700);
 }
+*/
 
 .second-column {
   overflow: scroll;
