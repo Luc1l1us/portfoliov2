@@ -9,7 +9,7 @@ export default function Projects({
   techbadges,
 }) {
   return (
-    <div className="flex mt-5">
+    <div className="flex m-5 md-5">
       <div className="first-project-logo">
         <Image
           className="mr-15 rounded-lg drop-shadow-lg "
