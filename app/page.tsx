@@ -1,15 +1,12 @@
 import Image from "next/image";
-import Link from "next/link";
 import Projects from "./components/projects";
 import projects from "./data/projects";
+import Experience from "./components/experience";
+import experience from "./data/experience";
+import Sections from "./components/sections";
+import sections from "./data/section";
 import ProfileImage from "../assets/drawingpfp.png";
-import Symph from "../assets/symph-logo.jpg";
 import Taskbar from "./components/taskbar";
-import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
-import { faClipboard } from "@fortawesome/free-regular-svg-icons/faClipboard";
-import { faRankingStar } from "@fortawesome/free-solid-svg-icons";
-import { faInfo } from "@fortawesome/free-solid-svg-icons";
-import { faAddressCard } from "@fortawesome/free-regular-svg-icons";
 
 export default function Home() {
   return (
@@ -35,34 +32,9 @@ export default function Home() {
         <div className="flex flex-col navigation gap-4 mt-3 bg-silver-base rounded-md w-full h-full">
           <div className="section-container-title lg:mt-6 lg:ml-6">Section</div>
           <div className="sections-container flex flex-col lg:ml-6 gap-1">
-            <a
-              href="#projects"
-              className="ml-3 hover-navigation py-2 place-items-center rounded-md transition-all duration-200 hover:bg-gray-100/75"
-            >
-              <FontAwesomeIcon icon={faClipboard} className="mr-3" />
-              projects
-            </a>
-            <a
-              href="#experience"
-              className="ml-3 hover-navigation py-2 place-items-center rounded-md transition-all duration-200 hover:bg-gray-100/75"
-            >
-              <FontAwesomeIcon icon={faRankingStar} className="mr-3" />
-              experience
-            </a>
-            <a
-              href="#about"
-              className="ml-3 hover-navigation py-2 place-items-center rounded-md transition-all duration-200 hover:bg-gray-100/75"
-            >
-              <FontAwesomeIcon icon={faInfo} className="mr-3" />
-              about
-            </a>
-            <a
-              href="#contact"
-              className="ml-3 hover-navigation py-2 place-items-center rounded-md transition-all duration-200 hover:bg-gray-100/75"
-            >
-              <FontAwesomeIcon icon={faAddressCard} className="mr-3" />
-              contact
-            </a>
+            {sections.map((section) => (
+              <Sections key={section.sectionname} {...section} />
+            ))}
           </div>
         </div>
       </div>
@@ -98,29 +70,9 @@ export default function Home() {
             className="experience-container bg-silver-base rounded-md mt-3"
           >
             <p className="experience-title ml-6 mt-6">experience</p>
-            <div className="flex ml-6 h-full mt-6">
-              <div className="first-experience-logo">
-                <Image
-                  className="mr-15 rounded-lg drop-shadow-lg"
-                  src={Symph}
-                  width={40}
-                  height={40}
-                  alt="Symph company logo"
-                  unoptimized
-                />
-              </div>
-              <div>
-                <div className="bold-title">
-                  Symph (Software Developer Intern/QA Automation Tester)
-                </div>
-                <p className="description mb-6">
-                  Played a dual-role in a client deployment project—developing
-                  features and resolving bugs before leading QA automation
-                  efforts with Cypress to enhance test coverage and overall
-                  product stability.
-                </p>
-              </div>
-            </div>
+            {experience.map((exp) => (
+              <Experience key={exp.companyname} {...exp} />
+            ))}
           </section>
         </div>
 
