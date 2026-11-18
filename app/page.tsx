@@ -7,6 +7,7 @@ import Sections from "./components/sections";
 import sections from "./data/section";
 import ProfileImage from "../assets/drawingpfp.png";
 import Taskbar from "./components/taskbar";
+import Container from "./components/container";
 
 export default function Home() {
   return (
@@ -53,67 +54,47 @@ export default function Home() {
         </div>
 
         <div className="flex flex-col">
-          <section
-            id="projects"
-            className="projects-container bg-silver-base rounded-md mt-3"
-          >
-            <div className="projects-title ml-6 mt-6">projects</div>
+          <Container containername="projects">
             {projects.map((project) => (
               <Projects key={project.projname} {...project} />
             ))}
-          </section>
+          </Container>
         </div>
 
         <div className="flex">
-          <section
-            id="experience"
-            className="experience-container bg-silver-base rounded-md mt-3"
-          >
-            <p className="experience-title ml-6 mt-6">experience</p>
+          <Container containername="experience">
             {experience.map((exp) => (
               <Experience key={exp.companyname} {...exp} />
             ))}
-          </section>
+          </Container>
         </div>
 
         <div className="flex">
-          <section
-            id="about"
-            className="about-container bg-silver-base rounded-md mt-3"
-          >
-            <p className="about-title mt-6 ml-6">about</p>
-            <p className="mt-5 ml-6 mr-6 mb-6">
-              I’m a software developer passionate about building systems that
-              are both technically robust and thoughtfully designed. I enjoy
-              working across the stack—from architecting backend APIs and
-              automation pipelines to crafting clean, responsive user
-              interfaces. My projects range from cross-platform desktop
-              applications and algorithm-driven simulations to full-stack mobile
-              apps integrating real-time financial data. I’m especially
-              interested in system design, performance optimization, and writing
-              maintainable, scalable code. I'm continuously improving workflows,
-              automating processes if possible, and turning complex problems
-              into clean, reliable solutions.
-            </p>
-          </section>
+          <Container containername="about">
+            I’m a software developer passionate about building systems that are
+            both technically robust and thoughtfully designed. I enjoy working
+            across the stack—from architecting backend APIs and automation
+            pipelines to crafting clean, responsive user interfaces. My projects
+            range from cross-platform desktop applications and algorithm-driven
+            simulations to full-stack mobile apps integrating real-time
+            financial data. I’m especially interested in system design,
+            performance optimization, and writing maintainable, scalable code.
+            I'm continuously improving workflows, automating processes if
+            possible, and turning complex problems into clean, reliable
+            solutions.
+          </Container>
         </div>
 
         <div className="flex">
-          <section
-            id="contact"
-            className="contact-container bg-silver-base rounded-md mt-3"
-          >
-            <p className="contact-title mt-6 ml-6">contact</p>
-            <div className="mt-5 ml-6 mr-6 mb-6">
-              I’m always open to discussing new opportunities, collaborations,
-              or interesting technical problems. Whether it's software
-              engineering, automation, systems work, or full-stack development.
-              Please feel free to reach out.
-              <p>📧 Email: edziemarin@gmail.com </p>
-              <p>💼 LinkedIn: linkedin.com/in/edz-navarra</p>
-              <p>💻 GitHub: github.com/Luc1l1us</p>
-            </div>
-          </section>
+          <Container containername="contact">
+            I’m always open to discussing new opportunities, collaborations, or
+            interesting technical problems. Whether it's software engineering,
+            automation, systems work, or full-stack development. Please feel
+            free to reach out.
+            <p>📧 Email: edziemarin@gmail.com </p>
+            <p>💼 LinkedIn: linkedin.com/in/edz-navarra</p>
+            <p>💻 GitHub: github.com/Luc1l1us</p>
+          </Container>
         </div>
       </div>
     </div>
