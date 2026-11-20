@@ -5,6 +5,7 @@ import { faEnvelope } from "@fortawesome/free-regular-svg-icons";
 import { faFile } from "@fortawesome/free-regular-svg-icons";
 import { faMoon } from "@fortawesome/free-regular-svg-icons";
 import Link from "next/link";
+import LiveClock from "./liveclock";
 
 export default function Taskbar() {
   return (
@@ -23,12 +24,8 @@ export default function Taskbar() {
         </button>
 
         <hr className="border-[#6e6e6e] px-5 ml-1 my-3 h-0.1 border-t-5" />
-        {/* get some time elements here, anything just to populate this space */}
-        {/*
-        <button className="flex first-button mb-2 ml-3 mt-2 w-4 h-4 bg-silver-100 rounded-full"></button>
-        <button className="flex second-button mb-2 ml-3 mt-2 w-4 h-4 bg-silver-300 rounded-full"></button>
-        <button className="flex third-button mb-2 ml-3 mt-2 w-4 h-4 bg-silver-700 rounded-full"></button>
-        */}
+        {/* Put time here */}
+        <LiveClock />
       </div>
       <div className="flex flex-col items-center justify-center font-doto font-bold whitespace-nowrap bg-silver-base p-2 rounded-md h-full">
         <span>p</span>
