@@ -11,7 +11,7 @@ import Container from "./components/container";
 
 export default function Home() {
   return (
-    <div className="h-[100vh] sm:h-[100vh] md:h-[85vh] lg:h-[80vh] flex flex-row justify-items-start md:m-20 md:pr-30 rounded-lg border border-white shadow-[0_0_20px_rgba(0,0,0,0.15)] text-silver-700 gap-3">
+    <div className="h-[100vh] sm:h-[100vh] md:h-[85vh] lg:h-[80vh] flex flex-row justify-items-start md:m-20 rounded-lg border border-white shadow-[0_0_20px_rgba(0,0,0,0.15)] text-silver-700 gap-3">
       <Taskbar />
       <div className="flex flex-col items-center first-column basis-1/3 font-ubuntu rounded-md bg-silver-100">
         <div className="profile-container flex items-center bg-silver-base rounded-md w-full">
@@ -86,6 +86,9 @@ export default function Home() {
           <p>💻 GitHub: github.com/Luc1l1us</p>
         </Container>
       </div>
+
+      {/* Third column here */}
+      <div className="third-column flex flex-col font-ubuntu bg-red-300"></div>
     </div>
   );
 }
