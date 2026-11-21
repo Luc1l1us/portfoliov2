@@ -88,7 +88,14 @@ export default function Home() {
       </div>
 
       {/* Third column here */}
-      <div className="third-column flex flex-col font-ubuntu bg-red-300"></div>
+      <div className="flex flex-col second-column basis-1/5 font-ubuntu bg-silver-100 w-full h-full">
+        <Container
+          containername="github"
+          className="flex flex-col bg-silver-base rounded-md w-full h-full"
+        >
+          Latest development activity
+        </Container>
+      </div>
     </div>
   );
 }
