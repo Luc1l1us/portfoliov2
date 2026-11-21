@@ -1,0 +1,1 @@
+export {VerticalCalender as default} from './vertical-calendar';

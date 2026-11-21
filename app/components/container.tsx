@@ -12,17 +12,17 @@ export default function Container({ containername, children, className = "" }) {
       <section
         id={containername}
         className={
-          containername === ""
+          ["", "github"].includes(containername)
             ? `${containername}-container bg-silver-base rounded-md`
             : containername === "section"
-              ? `${containername}-container `
+              ? `${containername}-container`
               : `${containername}-container bg-silver-base rounded-md mt-3`
         }
       >
         <div className={`${containername}-title ml-6 mt-6`}>
           {containername}
         </div>
-        {["contact", "about"].includes(containername) ? (
+        {["contact", "about", "github"].includes(containername) ? (
           <div className="mt-5 ml-6 mr-6 mb-6">{children}</div>
         ) : containername === "section" ? (
           <div className="flex flex-col lg:ml-6 gap-1 mt-3">{children}</div>
