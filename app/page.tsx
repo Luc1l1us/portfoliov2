@@ -8,8 +8,11 @@ import sections from "./data/section";
 import ProfileImage from "../assets/drawingpfp.png";
 import Taskbar from "./components/taskbar";
 import Container from "./components/container";
+import VerticalCalender from "./components/github";
+import { getCachedLatestDevelopmentActivity } from "./components/github/getLatestDevelopmentActivity";
 
-export default function Home() {
+export default async function Home() {
+  const latestDevelopment = await getCachedLatestDevelopmentActivity();
   return (
     <div className="h-[100vh] sm:h-[100vh] md:h-[85vh] lg:h-[80vh] flex flex-row justify-items-start md:m-20 rounded-lg border border-white shadow-[0_0_20px_rgba(0,0,0,0.15)] text-silver-700 gap-3">
       <Taskbar />
@@ -88,14 +91,20 @@ export default function Home() {
       </div>
 
       {/* Third column here */}
-      <div className="flex flex-col second-column basis-1/5 font-ubuntu bg-silver-100 w-full h-full">
-        <Container
-          containername="github"
-          className="flex flex-col bg-silver-base rounded-md w-full h-full"
-        >
-          Latest development activity
-        </Container>
-      </div>
+      <Container
+        containername="github"
+        className="flex flex-col bg-silver-base rounded-md w-full h-full"
+      >
+        Latest development activity
+        <p>
+          Showing <strong>{latestDevelopment.totalContribution}</strong>{" "}
+          {latestDevelopment.totalContribution === 1
+            ? "contribution"
+            : "contributions"}{" "}
+          in the last year.
+        </p>
+        <VerticalCalender data={latestDevelopment.contributions} />
+      </Container>
     </div>
   );
 }
