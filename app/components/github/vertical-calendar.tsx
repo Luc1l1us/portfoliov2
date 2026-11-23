@@ -1,5 +1,5 @@
 "use client";
-import React from "react";
+import React, { useEffect, useRef } from "react";
 import * as echarts from "echarts/core";
 import { HeatmapChart } from "echarts/charts";
 import {
@@ -22,10 +22,11 @@ echarts.use([
 export const VerticalCalender = ({ data }: GitContributionGraphProps) => {
   const startDate = data[0][0];
   const endDate = data[data.length - 1][0];
+  const chartRef = useRef<ReactEChartsCore>(null);
 
-  const option = {
+  const option: echarts.EChartsCoreOption = {
     backgroundColor: "transparent",
-    toolip: {
+    tooltip: {
       show: false,
     },
     visualMap: {
@@ -33,7 +34,7 @@ export const VerticalCalender = ({ data }: GitContributionGraphProps) => {
       min: 0,
       max: 20,
       inRange: {
-        color: [], // customize color here
+        color: ["#999999", "#707070", "#505050", "#303030", "#111111"],
       },
       type: "piecewise",
       splitNumber: 5,
@@ -47,8 +48,8 @@ export const VerticalCalender = ({ data }: GitContributionGraphProps) => {
       ],
     },
     calendar: {
-      top: 20,
-      left: 50,
+      top: 30,
+      left: 35,
       right: 5,
       cellSize: [20],
       range: [startDate, endDate],
@@ -58,6 +59,10 @@ export const VerticalCalender = ({ data }: GitContributionGraphProps) => {
       },
       dayLabel: {
         nameMap: ["", "Mon", "", "Wed", "", "Fri", ""],
+      },
+      monthLabel: {
+        nameMap: "en",
+        margin: 10,
       },
       yearLabel: { show: false },
       splitLine: { show: false },
@@ -78,7 +83,7 @@ export const VerticalCalender = ({ data }: GitContributionGraphProps) => {
   };
   return (
     <div>
-      <ReactEChartsCore option={option} />
+      <ReactEChartsCore ref={chartRef} option={option} echarts={echarts} />
     </div>
   );
 };
