@@ -9,6 +9,7 @@ import {
 } from "echarts/components";
 import { SVGRenderer } from "echarts/renderers";
 import { GitContributionGraphProps } from "./type";
+import ReactEChartsCore from "echarts-for-react/lib/core";
 
 echarts.use([
   HeatmapChart,
@@ -75,4 +76,9 @@ export const VerticalCalender = ({ data }: GitContributionGraphProps) => {
       },
     ],
   };
+  return (
+    <div>
+      <ReactEChartsCore option={option} />
+    </div>
+  );
 };
