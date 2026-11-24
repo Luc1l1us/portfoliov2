@@ -91,20 +91,20 @@ export default async function Home() {
       </div>
 
       {/* Third column here */}
-      <Container
-        containername="github"
-        className="flex flex-col bg-silver-base rounded-md w-full h-full"
-      >
-        Latest development activity
-        <p>
-          Showing <strong>{latestDevelopment.totalContribution}</strong>{" "}
-          {latestDevelopment.totalContribution === 1
-            ? "contribution"
-            : "contributions"}{" "}
-          in the last year.
-        </p>
-        <VerticalCalender data={latestDevelopment.contributions} />
-      </Container>
+      <div className="flex flex-col basis-1/3 font-ubuntu min-w-0 min-h-0 bg-silver-base rounded-md w-full">
+        <div className="flex flex-col flex-1 min-w-0 min-h-0 mt-6 mx-6">
+          <p>GitHub</p>
+
+          <p className="mt-6">
+            Showing <strong>{latestDevelopment.totalContribution}</strong>{" "}
+            contributions in the last year.
+          </p>
+
+          <div className=" third-column w-full min-w-0">
+            <VerticalCalender data={latestDevelopment.contributions} />
+          </div>
+        </div>
+      </div>
     </div>
   );
 }
