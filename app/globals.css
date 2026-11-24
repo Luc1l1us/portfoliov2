@@ -89,7 +89,8 @@ body {
 }
 */
 
-.second-column {
+.second-column,
+.third-column {
   overflow: scroll;
   /* hide scrollbar */
   scrollbar-width: none;

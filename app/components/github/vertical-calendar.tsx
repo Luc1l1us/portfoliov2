@@ -1,5 +1,5 @@
 "use client";
-import React, { useEffect, useRef } from "react";
+import React, { useCallback, useEffect, useRef, useState } from "react";
 import * as echarts from "echarts/core";
 import { HeatmapChart } from "echarts/charts";
 import {
@@ -23,11 +23,35 @@ export const VerticalCalender = ({ data }: GitContributionGraphProps) => {
   const startDate = data[0][0];
   const endDate = data[data.length - 1][0];
   const chartRef = useRef<ReactEChartsCore>(null);
+  const cellSize = 20;
+  const numberOfWeeks = Math.ceil(data.length / 7);
+  const chartHeight = numberOfWeeks * cellSize + 60;
 
   const option: echarts.EChartsCoreOption = {
     backgroundColor: "transparent",
     tooltip: {
-      show: false,
+      show: true,
+      trigger: "item",
+      confine: true,
+      backgroundColor: "#212121",
+      borderWidth: 0,
+      padding: 10,
+      formatter: (params: any) => {
+        const [date, count] = params.value;
+        const formattedDate = new Date(`${date}T00:00:00`).toLocaleDateString(
+          "en-US",
+          {
+            month: "long",
+            day: "numeric",
+            year: "numeric",
+          },
+        );
+        return `
+          <strong>${count} ${count === 1 ? "contribution" : "contributions"}</strong>
+          <br/>
+          <span>${formattedDate}</span>
+        `;
+      },
     },
     visualMap: {
       show: false,
@@ -48,10 +72,12 @@ export const VerticalCalender = ({ data }: GitContributionGraphProps) => {
       ],
     },
     calendar: {
+      orient: "vertical",
       top: 30,
       left: 35,
       right: 5,
-      cellSize: [20],
+      bottom: 10,
+      cellSize: [cellSize, cellSize],
       range: [startDate, endDate],
       itemStyle: {
         borderWidth: 0,
@@ -82,8 +108,16 @@ export const VerticalCalender = ({ data }: GitContributionGraphProps) => {
     ],
   };
   return (
-    <div>
-      <ReactEChartsCore ref={chartRef} option={option} echarts={echarts} />
+    <div className="w-full flex-1 min-h-0">
+      <ReactEChartsCore
+        ref={chartRef}
+        option={option}
+        echarts={echarts}
+        style={{
+          width: "100%",
+          height: `${chartHeight}px`,
+        }}
+      />
     </div>
   );
 };
