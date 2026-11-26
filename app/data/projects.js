@@ -2,6 +2,7 @@ import MonochromeSwitcher from "../../assets/monoswitcher.png"
 import Mumei from "../../assets/mumei.png";
 import CityRushHour from "../../assets/city-rush-hour.png";
 import CoinPulse from "../../assets/Coin-pulse-alt.png";
+import Keeply from "../../assets/Keeply.png"
 
 const projects = [
     {
@@ -53,6 +54,17 @@ const projects = [
             "Flask",
             "Firebase",
             "Twelve Data API",
+        ],
+    },
+    {
+        projname: "Keeply",
+        imgsource: Keeply,
+        link: "https://github.com/Luc1l1us/to_do_list",
+        projdesc: "Developed a personal note and task management application inspired by Google Keep. Built with Flutter, Express.js, and MongoDB, the project explores creating a self-managed alternative to traditional note-taking applications, emphasizing privacy and data ownership.",
+        techbadges: [
+            "Flutter",
+            "Express.js",
+            "MongoDB",
         ],
     },
 ]

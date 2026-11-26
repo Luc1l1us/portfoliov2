@@ -20,6 +20,7 @@ export function TechBadge({ name }) {
     MySQL: "bg-[#4479a1] text-white",
     Linux: "bg-[#000000] text-white",
     Flask: "bg-[#000000] text-white",
+    MongoDB: "bg-[#00fb6a] text-[#001e2b]",
     "OpenRouter API": "bg-[#000000] text-white",
     "Canvas REST API": "bg-[#e34f26] text-white",
     "OpenAI API": "bg-[#412991] text-white",

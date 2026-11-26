@@ -1,7 +1,7 @@
 @import "tailwindcss";
 @tailwind components;
 @tailwind utilities;
-
+@custom-variant dark (&:where(.dark, .dark *));
 :root {
   --background: #ffffff;
   --white: #ffffff;
@@ -10,12 +10,19 @@
   --foreground: #171717;
 }
 
+:root.dark {
+  --background: #000000;
+}
+
 @theme {
   --color-silver-base: #c0c0c0;
   --color-silver-100: #eeeeee;
   --color-silver-200: #e2e2e2;
   --color-silver-300: #898989;
   --color-silver-700: #202020;
+  --color-black-base: #000000;
+  --color-black-100: #262626;
+  --color-black-200: #4c4c4c;
   --animate-hover-move: hover-move 0.2s ease-in-out forwards;
 }
 
